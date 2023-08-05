@@ -11,7 +11,6 @@ class AllStudentsListPage extends StatefulWidget {
 }
 
 class _AllStudentsListPageState extends State<AllStudentsListPage> {
-  
   final AllStudentListBloc allStudentListBloc = AllStudentListBloc();
 
   @override
@@ -39,21 +38,29 @@ class _AllStudentsListPageState extends State<AllStudentsListPage> {
               child: ListView.builder(
                 itemCount: state.studentsDatas.length,
                 itemBuilder: (context, index) {
+                  var image = state.studentsDatas[index]['studentProfileImage'];
                   return ListTile(
+                    leading: image != null
+                        ? CircleAvatar(backgroundImage: MemoryImage(image))
+                        : const CircleAvatar(child: Icon(Icons.person),),
                     title: Text(
-                      'name : ${state.studentsDatas[index]['name']}',
+                      'name : ${state.studentsDatas[index]['fullName']}',
                     ),
                     subtitle:
-                        Text('age : ${state.studentsDatas[index]['age']}'),
+                        Text('age : ${state.studentsDatas[index]['idNumber']}'),
+                    trailing: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(Icons.delete),
+                    ),
                   );
                 },
               ),
             ),
           );
         } else if (state is AllStudentListErrorState) {
-          return  Scaffold(
+          return Scaffold(
             appBar: customAppbar(),
-            body: Center(
+            body: const Center(
                 child: Text(
               'Error ',
               style: TextStyle(

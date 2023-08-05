@@ -1,6 +1,7 @@
 import 'dart:async';
-import 'package:path/path.dart';
+import 'dart:typed_data';
 
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class StudentDatabase {
@@ -11,24 +12,26 @@ class StudentDatabase {
   }
 
   static FutureOr<void> _createDb(Database db, int version) async {
-    await db.execute(
-        '''CREATE TABLE student (
+    await db.execute('''CREATE TABLE student (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      fullname TEXT,
+      fullName TEXT,
       idNumber INTEGER,
+      studentProfileImage TEXT 
      )''');
   }
 
   static Future<int> insertStudent({
     required String fullname,
     required int idNumber,
+    required Uint8List studentProfileImage,
   }) async {
     final db = await _openDb();
     final data = {
-      'name': fullname,
-      'age': idNumber,
+      'fullName': fullname,
+      'idNumber': idNumber,
+      'studentProfileImage': studentProfileImage
     };
-    print('Add Student ${data}');
+    print('================== Add Student ${data} =================== ');
     return await db.insert('student', data);
   }
 

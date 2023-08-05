@@ -1,7 +1,6 @@
 part of 'add_student_bloc.dart';
 
-@immutable
-abstract class AddStudentState {}
+ class AddStudentState {}
 
 class AddStudentInitial extends AddStudentState {}
 

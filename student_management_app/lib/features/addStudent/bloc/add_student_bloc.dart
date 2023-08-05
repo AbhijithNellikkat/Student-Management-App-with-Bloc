@@ -1,8 +1,7 @@
 import 'dart:async';
+
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
-// ignore: depend_on_referenced_packages
-import 'package:meta/meta.dart';
 import 'package:student_management_app/database/database.dart';
 
 part 'add_student_event.dart';
@@ -14,11 +13,19 @@ class AddStudentBloc extends Bloc<AddStudentEvent, AddStudentState> {
   }
 
   FutureOr<void> addStudentSaveButtonEvent(
-      AddStudentSaveButtonEvent event, Emitter<AddStudentState> emit) {
+      AddStudentSaveButtonEvent event, Emitter<AddStudentState> emit) async {
     try {
       final fullname = event.fullname;
       final idNumber = event.idNumber;
-      StudentDatabase.insertStudent(fullname: fullname, idNumber: idNumber);
+      var studentProfileImage = event.studentProfileImage;
+      await StudentDatabase.insertStudent(
+        studentProfileImage:studentProfileImage ,
+        
+        fullname: fullname,
+        idNumber: idNumber,
+        // studentProfileImage: studentProfileImage,
+      );
+      print('AddStudentSuccessSate => called');
       emit(AddStudentSuccessSate());
     } catch (e) {
       emit(AddStudentErrorState());
