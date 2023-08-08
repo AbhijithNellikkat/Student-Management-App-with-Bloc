@@ -29,7 +29,7 @@ class _StudentUpdatePageState extends State<StudentUpdatePage> {
         title: const Text('Update Page'),
       ),
       body: Center(
-        child: Padding(
+        child: Padding(           
           padding: const EdgeInsets.all(28.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

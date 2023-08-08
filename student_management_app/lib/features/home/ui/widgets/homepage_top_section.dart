@@ -1,28 +1,30 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class HomePageTopSection extends StatelessWidget {
-  const HomePageTopSection({
+  HomePageTopSection({
     super.key,
   });
-
+  final user = FirebaseAuth.instance.currentUser!;
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 19, top: 19),
+              padding: const EdgeInsets.only(left: 19, top: 19),
               child: Text(
-                'Hi Dev Test ',
-                style: TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
+                'Hi , ${user.displayName}',
+                style:
+                    const TextStyle(fontSize: 29, fontWeight: FontWeight.bold),
               ),
             ),
           ],
         ),
-        SizedBox(height: 10),
-        Row(
+        const SizedBox(height: 10),
+        const Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
@@ -32,7 +34,6 @@ class HomePageTopSection extends StatelessWidget {
                 style: TextStyle(
                     letterSpacing: 2,
                     fontSize: 16,
-                    
                     fontWeight: FontWeight.w200),
               ),
             ),

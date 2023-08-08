@@ -18,7 +18,7 @@ class HomePageBody extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          const HomePageTopSection(),
+           HomePageTopSection(),
           const CenterLottieSection(),
           bottonCardSection(bloc: bloc)
         ],
