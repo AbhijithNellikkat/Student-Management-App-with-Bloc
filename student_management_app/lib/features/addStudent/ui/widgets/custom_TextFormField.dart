@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {super.key,
-      required this.controller,
-      required this.label,
-      this.textInputType = TextInputType.text});
-  final String label;
+  const CustomTextFormField({
+    super.key,
+    required this.controller,
+    required this.lable,
+    this.keyboardType = TextInputType.name,
+  });
+
   final TextEditingController controller;
-  final TextInputType textInputType;
+  final String lable;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      keyboardType: textInputType,
+      keyboardType: keyboardType,
       decoration: InputDecoration(
-        label: Text(label),
+        border: const OutlineInputBorder(borderRadius: BorderRadius.zero),
+        label: Text(lable),
       ),
     );
   }

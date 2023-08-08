@@ -8,7 +8,7 @@ part 'add_student_event.dart';
 part 'add_student_state.dart';
 
 class AddStudentBloc extends Bloc<AddStudentEvent, AddStudentState> {
-  AddStudentBloc() : super(AddStudentInitial()) {
+  AddStudentBloc() : super(AddStudentInitialState()) {
     on<AddStudentSaveButtonEvent>(addStudentSaveButtonEvent);
   }
 

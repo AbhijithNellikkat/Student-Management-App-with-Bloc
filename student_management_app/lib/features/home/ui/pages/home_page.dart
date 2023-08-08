@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student_management_app/features/addStudent/ui/pages/add_student_page.dart';
 import 'package:student_management_app/features/allStudentsList/ui/pages/all_students_list_page.dart';
 import 'package:student_management_app/features/home/bloc/home_bloc.dart';
-import 'package:student_management_app/widgets/custom_AppBar.dart';
+
+import '../widgets/homepage_appBar.dart';
+import '../widgets/homepage_body.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -36,36 +38,8 @@ class HomePage extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           drawer: const Drawer(),
-          appBar: customAppbar(appbarTitle: 'Student App'),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    homeBloc.add(HomeAddStudentCardNavigateEvent());
-                  },
-                  child: const Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(18.0),
-                      child: Text('Add Student'),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    homeBloc.add(HomeAllStudentsListCardNavigateEvent());
-                  },
-                  child: const Card(
-                    child: Padding(
-                      padding: EdgeInsets.all(18.0),
-                      child: Text('All Students List'),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          appBar: homePageAppBar(),
+          body: HomePageBody(bloc: homeBloc),
         );
       },
     );

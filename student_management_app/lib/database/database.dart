@@ -16,6 +16,11 @@ class StudentDatabase {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       fullName TEXT,
       idNumber INTEGER,
+      email TEXT,
+      phoneNumber INTEGER,
+      class INTEGER,
+      DateOfBirth TEXT,
+      bloodGroup TEXT,
       studentProfileImage TEXT 
      )''');
   }
