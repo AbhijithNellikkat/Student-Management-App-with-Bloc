@@ -21,12 +21,6 @@ Future<void> deleteConfirmAlert(BuildContext context) async => showDialog<void>(
                 Navigator.of(context).pop();
               },
             ),
-            TextButton(
-              child: const Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
           ],
         );
       },
@@ -35,14 +29,4 @@ Future<void> deleteConfirmAlert(BuildContext context) async => showDialog<void>(
 
 
 
-                                        // SlidableAction(
-                                    //   onPressed: (context) {
-                                    //     allStudentListBloc.add(
-                                    //         AllStudentListNavigateToUpdatePageEvent(
-                                    //             index: state.studentsDatas[index]['id']));
-                                    //   },
-                                    //   backgroundColor: Colors.green,
-                                    //   foregroundColor: Colors.white,
-                                    //   icon: Icons.edit,
-                                    //   label: 'Update',
-                                    // ),
+                                     

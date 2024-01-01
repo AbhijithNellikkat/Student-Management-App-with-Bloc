@@ -36,7 +36,8 @@ class StudentDatabase {
       'idNumber': idNumber,
       'studentProfileImage': studentProfileImage
     };
-    print('================== Add Student ${data} =================== ');
+  
+    // print('================== Add Student ${data} =================== ');
     return await db.insert('student', data);
   }
 

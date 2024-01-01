@@ -38,7 +38,7 @@ class CustomAddStudentForm extends StatelessWidget {
           await FlutterImageCompress.compressWithList(imageByts, quality: 85);
       Future.delayed(const Duration(seconds: 1));
       ScaffoldMessenger.of(context).showSnackBar(imageSelectedSnackBar());
-    }
+    } 
 
     return Form(
       child: Column(

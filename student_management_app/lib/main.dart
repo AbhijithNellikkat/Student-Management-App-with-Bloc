@@ -39,7 +39,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Student Management App',
       debugShowCheckedModeBanner: false,
-      home: SafeArea(child: SplashScreen()),
+      
+      home: const SafeArea(child: SplashScreen()),
     );
   }
 }

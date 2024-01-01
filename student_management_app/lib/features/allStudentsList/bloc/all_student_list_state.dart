@@ -28,6 +28,8 @@ class AllStudentListNavigateToStudentsDetailsPageActionState
 class AllStudentListNavigarteToUpdatePageState
     extends AllStudentListActionState {
   final int index;
+  final List<Map<String, dynamic>> studentsDatas;
 
-  AllStudentListNavigarteToUpdatePageState({required this.index});
+  AllStudentListNavigarteToUpdatePageState(
+      {required this.index, required this.studentsDatas,});
 }

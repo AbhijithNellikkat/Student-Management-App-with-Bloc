@@ -47,6 +47,6 @@ class AllStudentListBloc
   FutureOr<void> allStudentListNavigateToUpdatePageEvent(
       AllStudentListNavigateToUpdatePageEvent event,
       Emitter<AllStudentListState> emit) {
-    emit(AllStudentListNavigarteToUpdatePageState(index: event.index));
+    emit(AllStudentListNavigarteToUpdatePageState(index: event.index ,studentsDatas: event.studentsDatas));
   }
 }

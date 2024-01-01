@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:student_management_app/widgets/custom_AppBar.dart';
@@ -40,24 +38,13 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
           );
         } else if (state is StudentDetailsLoadedSuccessState) {
           return Scaffold(
-            appBar: customAppbar(appbarTitle: ''),
-            body: Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: NetworkImage(
-                    'https://img.freepik.com/premium-vector/social-media-network-people-connected-digital-interactive-communicate-global-concept_24877-67182.jpg'),
-                fit: BoxFit.cover,
-              )),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(25),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
-                  child: SizedBox(
-                    width: 300,
-                    height: 500,
+              appBar: customAppbar(appbarTitle: 'Student Details'),
+              body: Center(
+                child: SizedBox(
+                  width: 330,
+                  height: 550,
+                  child: Card(
+                    elevation: 33,
                     child: Column(
                       children: [
                         Padding(
@@ -71,25 +58,19 @@ class _StudentDetailsPageState extends State<StudentDetailsPage> {
                         Text(
                           'Name : ${state.students[widget.index]['fullName']}',
                           style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 26,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 24, fontWeight: FontWeight.bold),
                         ),
-                        const SizedBox(height: 0),
+                        const SizedBox(height: 7),
                         Text(
                           'ID Number : ${state.students[widget.index]['idNumber']}',
                           style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold),
+                              fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-            ),
-          );
+              ));
         } else {
           return const Scaffold(
             body: Center(

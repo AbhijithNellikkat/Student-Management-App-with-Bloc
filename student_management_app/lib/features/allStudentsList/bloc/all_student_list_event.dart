@@ -18,6 +18,7 @@ class AllStudentListNavigateToStudentDetailsPage extends AllStudentListEvent {
 
 class AllStudentListNavigateToUpdatePageEvent extends AllStudentListEvent {
   final int index;
+    final List<Map<String, dynamic>> studentsDatas;
 
-  AllStudentListNavigateToUpdatePageEvent({required this.index});
+  AllStudentListNavigateToUpdatePageEvent(this.studentsDatas, {required this.index});
 }

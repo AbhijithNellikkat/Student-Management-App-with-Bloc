@@ -47,7 +47,7 @@ class _AllStudentsListPageState extends State<AllStudentsListPage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => StudentUpdatePage(index: state.index),
+                builder: (context) => StudentUpdatePage(index: state.index,db: state.studentsDatas),
               ));
         }
       },
@@ -71,7 +71,7 @@ class _AllStudentsListPageState extends State<AllStudentsListPage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Slidable(
                                 endActionPane: ActionPane(
-                                  motion: ScrollMotion(),
+                                  motion: const ScrollMotion(),
                                   children: [
                                     SlidableAction(
                                         onPressed: (context) async {
@@ -87,7 +87,19 @@ class _AllStudentsListPageState extends State<AllStudentsListPage> {
                                             const Color(0xFFFE4A49),
                                         foregroundColor: Colors.white,
                                         icon: Icons.delete,
-                                        label: 'Delete')
+                                        label: 'Delete'),
+                                    SlidableAction(
+                                      onPressed: (context) {
+                                        allStudentListBloc.add(
+                                            AllStudentListNavigateToUpdatePageEvent(
+                                                state.studentsDatas,
+                                                index: index));
+                                      },
+                                      backgroundColor: Colors.green,
+                                      foregroundColor: Colors.white,
+                                      icon: Icons.edit,
+                                      label: 'Update',
+                                    ),
                                   ],
                                 ),
                                 child: tapToStudentDetailsPage(
